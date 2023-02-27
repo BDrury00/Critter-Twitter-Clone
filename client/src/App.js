@@ -1,27 +1,58 @@
 import React from "react";
-import Logo from "./Logo";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomeFeed from ".//components/HomeFeed/HomeFeed";
-import Notifications from ".//components/Notifications/Notifications";
-import Bookmarks from ".//components/Bookmarks/Bookmarks";
-import TweetDetails from ".//components/TweetDetails/TweetDetails";
-import Profile from ".//components/Profile/Profile";
+import { Link, NavLink } from "react-router-dom";
+import Sidebar from "./components/sidebar/Sidebar";
+import HomeFeed from "./components/render-info/HomeFeed";
+import Notifications from "./components/render-info/Notifications";
+import Bookmarks from "./components/render-info/Bookmarks";
+import TweetDetails from "./components/render-info/TweetDetails";
+import Profile from "./components/render-info/Profile";
+import styled from "styled-components";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Logo />
-        <Routes>
-          <Route path="/" element={<HomeFeed />} />
-          <Route path="/notifications" element={<Notifications />} />
-          <Route path="/bookmarks" element={<Bookmarks />} />
-          <Route path="/tweet/:tweetId" element={<TweetDetails />} />
-          <Route path="/profileId" element={<Profile />} />
-        </Routes>
+        <Container>
+          <SideBarContainer>
+            <Sidebar>
+              <NavLink to="/" end />
+              <NavLink to="/notifications" end />
+              <NavLink to="/bookmarks" end />
+              <NavLink to="/profileId" end />
+            </Sidebar>
+          </SideBarContainer>
+          <Content>
+            <Routes>
+              <Route path="/" element={<HomeFeed />} />
+              <Route path="/notifications" element={<Notifications />} />
+              <Route path="/bookmarks" element={<Bookmarks />} />
+              <Route path="/tweet/:tweetId" element={<TweetDetails />} />
+              <Route path="/profileId" element={<Profile />} />
+            </Routes>
+          </Content>
+        </Container>
       </BrowserRouter>
     </>
   );
 };
+
+// Container with everything
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+//sidebar placement
+const SideBarContainer = styled.div`
+  border: 2px solid blue;
+  flex: 1;
+`;
+
+// content placement
+const Content = styled.div`
+  border: 2px solid red;
+  flex: 4;
+`;
 
 export default App;
