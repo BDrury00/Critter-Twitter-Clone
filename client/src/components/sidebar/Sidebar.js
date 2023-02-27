@@ -38,9 +38,32 @@ const SidebarContainer = styled.div`
 
 const SideBarYuh = styled.div`
   width: 200px;
+  height: 550px;
   background-color: #f0f0f0;
   padding: 20px;
   border: 2px solid black;
+  font-size: 24px;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;
 
 export default Sidebar;
