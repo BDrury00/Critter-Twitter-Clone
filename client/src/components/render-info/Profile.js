@@ -12,7 +12,7 @@ function Profile() {
           <img src={currentUser.bannerSrc} />
           <ProfilePic src={currentUser.avatarSrc} />
           <h2>{currentUser.displayName}</h2>
-          <p>@{currentUser.handle}</p>
+          <Handle>@{currentUser.handle}</Handle>
           <p>{currentUser.bio}</p>
           <p>//put location icon here//{currentUser.location}</p>
           <FollowContainer>
@@ -50,4 +50,7 @@ const Follow = styled.p`
   margin-right: 10px;
 `;
 
+const Handle = styled.p`
+margin-top: -20px;
+`;
 export default Profile;
