@@ -1,6 +1,13 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import CatIcon from "./CatIcon";
+
+import {
+  HomeIcon,
+  BookmarkIcon,
+  CatIcon,
+  NotificationIcon,
+  ProfileIcon,
+} from "./IconsForSideBar";
 import styled from "styled-components";
 
 const Sidebar = () => {
@@ -11,17 +18,19 @@ const Sidebar = () => {
         <ul>
           <li>
             <NavLink to="/" end>
-              Home
+              {<HomeIcon />}Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/profile/meow">Profile</NavLink>
+            <NavLink to="/profile/meow">{<ProfileIcon />}Profile</NavLink>
           </li>
           <li>
-            <NavLink to="/notifications">Notifications</NavLink>
+            <NavLink to="/notifications">
+              {<NotificationIcon />}Notifications
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/bookmarks">Bookmarks</NavLink>
+            <NavLink to="/bookmarks">{<BookmarkIcon />}Bookmarks</NavLink>
           </li>
         </ul>
       </SideBarYuh>
