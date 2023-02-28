@@ -41,18 +41,19 @@ const App = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
 `;
 
 //sidebar placement
 const SideBarContainer = styled.div`
   border: 2px solid blue;
-  flex: 1;
 `;
 
 // content placement
 const Content = styled.div`
   border: 2px solid red;
-  flex: 4;
+
+  max-width: 35%;
 `;
 
 export default App;

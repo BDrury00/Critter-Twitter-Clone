@@ -1,5 +1,53 @@
-const Profile = () => {
-  return <div>Profile page meow</div>;
-};
+import styled from "styled-components";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../CurrentUserContext";
+
+function Profile() {
+  const { currentUser } = useContext(CurrentUserContext);
+
+  return (
+    <div>
+      {currentUser ? (
+        <UserProfileBox>
+          <img src={currentUser.bannerSrc} />
+          <ProfilePic src={currentUser.avatarSrc} />
+          <h2>{currentUser.displayName}</h2>
+          <p>@{currentUser.handle}</p>
+          <p>{currentUser.bio}</p>
+          <p>//put location icon here//{currentUser.location}</p>
+          <FollowContainer>
+            <Follow>{currentUser.numFollowing} Following</Follow>
+            <Follow>{currentUser.numFollowers} Followers</Follow>
+          </FollowContainer>
+        </UserProfileBox>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+  );
+}
+
+//styled components
+
+const UserProfileBox = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  img {
+  }
+`;
+
+const ProfilePic = styled.img`
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+`;
+const FollowContainer = styled.div`
+  display: flex;
+`;
+
+const Follow = styled.p`
+  margin-right: 10px;
+`;
 
 export default Profile;
