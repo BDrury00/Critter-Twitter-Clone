@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../CurrentUserContext";
+import LocationIcon from "../Icons/LocationIcon";
 
 function Profile() {
   const { currentUser } = useContext(CurrentUserContext);
@@ -14,7 +15,9 @@ function Profile() {
           <h2>{currentUser.displayName}</h2>
           <Handle>@{currentUser.handle}</Handle>
           <p>{currentUser.bio}</p>
-          <p>//put location icon here//{currentUser.location}</p>
+          <p>
+            <LocationIcon /> {currentUser.location}
+          </p>
           <FollowContainer>
             <Follow>{currentUser.numFollowing} Following</Follow>
             <Follow>{currentUser.numFollowers} Followers</Follow>
@@ -41,6 +44,9 @@ const ProfilePic = styled.img`
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  margin-top: -10%;
+  margin-left: 10px;
+  border: 3px solid white;
 `;
 const FollowContainer = styled.div`
   display: flex;
@@ -51,6 +57,6 @@ const Follow = styled.p`
 `;
 
 const Handle = styled.p`
-margin-top: -20px;
+  margin-top: -20px;
 `;
 export default Profile;

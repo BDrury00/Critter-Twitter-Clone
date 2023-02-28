@@ -15,12 +15,7 @@ const App = () => {
       <BrowserRouter>
         <Container>
           <SideBarContainer>
-            <Sidebar>
-              <NavLink to="/" end />
-              <NavLink to="/notifications" end />
-              <NavLink to="/bookmarks" end />
-              <NavLink to="/profileId" end />
-            </Sidebar>
+            <Sidebar />
           </SideBarContainer>
           <Content>
             <Routes>
@@ -28,7 +23,7 @@ const App = () => {
               <Route path="/notifications" element={<Notifications />} />
               <Route path="/bookmarks" element={<Bookmarks />} />
               <Route path="/tweet/:tweetId" element={<TweetDetails />} />
-              <Route path="/profileId" element={<Profile />} />
+              <Route path="/profile/:profileId" element={<Profile />} />
             </Routes>
           </Content>
         </Container>

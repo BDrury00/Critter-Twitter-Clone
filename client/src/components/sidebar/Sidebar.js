@@ -15,7 +15,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/profileId">Profile</NavLink>
+            <NavLink to="/profile/meow">Profile</NavLink>
           </li>
           <li>
             <NavLink to="/notifications">Notifications</NavLink>
