@@ -1,4 +1,4 @@
-const Logo = () => {
+const CatIcon = () => {
   return (
     <svg
       height="90"
@@ -11,4 +11,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default CatIcon;

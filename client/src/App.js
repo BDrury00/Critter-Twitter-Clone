@@ -48,6 +48,7 @@ const SideBarContainer = styled.div`
 const Content = styled.div`
   border: 2px solid red;
 
+  min-width: 35%;
   max-width: 35%;
 `;
 

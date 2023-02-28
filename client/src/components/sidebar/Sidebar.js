@@ -1,13 +1,13 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import Logo from "./Logo";
+import CatIcon from "./CatIcon";
 import styled from "styled-components";
 
 const Sidebar = () => {
   return (
     <SidebarContainer>
       <SideBarYuh>
-        <Link to="/">{<Logo />}</Link>
+        <Link to="/">{<CatIcon />}</Link>
         <ul>
           <li>
             <NavLink to="/" end>
