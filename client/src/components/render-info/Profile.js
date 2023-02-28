@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { useContext } from "react";
 import { CurrentUserContext } from "../../CurrentUserContext";
-import LocationIcon from "../Icons/LocationIcon";
+import LocationIcon from "../Icons/profileIcons/LocationIcon";
 
-function Profile() {
+const Profile = () => {
   const { currentUser } = useContext(CurrentUserContext);
 
   return (
@@ -28,7 +28,7 @@ function Profile() {
       )}
     </div>
   );
-}
+};
 
 //styled components
 
