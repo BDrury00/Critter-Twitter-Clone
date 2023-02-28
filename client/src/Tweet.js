@@ -10,3 +10,5 @@ import {
 const Tweet = () => {
   return <div>Meow this is a tweet</div>;
 };
+
+export default Tweet;
