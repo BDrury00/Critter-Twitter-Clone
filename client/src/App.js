@@ -23,7 +23,7 @@ const App = () => {
               <Route path="/notifications" element={<Notifications />} />
               <Route path="/bookmarks" element={<Bookmarks />} />
               <Route path="/tweet/:tweetId" element={<TweetDetails />} />
-              <Route path="/profile/:profileId" element={<Profile />} />
+              <Route path="/:profileId" element={<Profile />} />
             </Routes>
           </Content>
         </Container>
