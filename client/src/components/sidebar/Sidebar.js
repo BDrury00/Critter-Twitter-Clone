@@ -25,7 +25,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/profile/${currentUser.handle}"}>
+            <NavLink to={`/profile/${currentUser.handle}`}>
               {<ProfileIcon />}Profile
             </NavLink>
           </li>
