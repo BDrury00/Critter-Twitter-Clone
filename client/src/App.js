@@ -48,8 +48,8 @@ const SideBarContainer = styled.div`
 const Content = styled.div`
   border: 2px solid red;
 
-  min-width: 35%;
-  max-width: 35%;
+  min-width: 45%;
+  max-width: 45%;
 `;
 
 export default App;

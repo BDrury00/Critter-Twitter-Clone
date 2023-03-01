@@ -1,18 +1,28 @@
 import { useEffect, useState } from "react";
+import Tweet from "../../Tweet";
 
 const HomeFeed = () => {
   //useStatates
-  const [homeData, setHomeData] = useState(null);
-  fetch();
+  const [tweets, setTweets] = useState([]);
 
   useEffect(() => {
     //fetch for homefeed
-    fetch();
+    fetch("/api/me/home-feed")
+      .then((response) => response.json())
+      .then((data) => {
+        const sortedTweets = data.tweetIds.map(
+          (tweetId) => data.tweetsById[tweetId]
+        );
+        setTweets(sortedTweets);
+        console.log(sortedTweets);
+      });
   }, []);
+
   return (
     <>
-      <div>HomeFeed</div>
-      <div>hhhh</div>
+      {tweets.map((tweet) => (
+        <Tweet key={tweet.id} tweet={tweet} />
+      ))}
     </>
   );
 };
