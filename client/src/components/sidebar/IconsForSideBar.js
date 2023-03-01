@@ -40,7 +40,7 @@ export const NotificationIcon = () => {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokidth="2"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
       className="feather feather-bell"

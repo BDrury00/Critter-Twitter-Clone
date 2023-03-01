@@ -1,3 +1,4 @@
+import { COLORS } from "../../GlobalStyles";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
@@ -20,20 +21,24 @@ const Sidebar = () => {
         <Link to="/">{<CatIcon />}</Link>
         <ul>
           <li>
-            <NavLink to="/" end>
+            <NavigationLink to="/" end>
               {<HomeIcon />}Home
-            </NavLink>
+            </NavigationLink>
           </li>
           <li>
-            <NavLink to={currentUser?.handle}>{<ProfileIcon />}Profile</NavLink>
+            <NavigationLink to={currentUser?.handle}>
+              {<ProfileIcon />}Profile
+            </NavigationLink>
           </li>
           <li>
-            <NavLink to="/notifications">
+            <NavigationLink to="/notifications">
               {<NotificationIcon />}Notifications
-            </NavLink>
+            </NavigationLink>
           </li>
           <li>
-            <NavLink to="/bookmarks">{<BookmarkIcon />}Bookmarks</NavLink>
+            <NavigationLink to="/bookmarks">
+              {<BookmarkIcon />}Bookmarks
+            </NavigationLink>
           </li>
         </ul>
       </SideBarYuh>
@@ -55,6 +60,7 @@ const SideBarYuh = styled.div`
   padding: 20px;
   border: 2px solid black;
   font-size: 24px;
+  font-weight: bold;
 
   ul {
     list-style: none;
@@ -71,10 +77,18 @@ const SideBarYuh = styled.div`
   a {
     color: black;
     text-decoration: none;
+  }
+`;
 
-    &:hover {
-      text-decoration: underline;
-    }
+const NavigationLink = styled(NavLink)`
+  &:hover {
+    background-color: ${COLORS.hover};
+    border-radius: 80px;
+    padding: 6px;
+  }
+
+  &.active {
+    color: ${COLORS.primary};
   }
 `;
 
