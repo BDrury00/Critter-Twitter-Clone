@@ -7,6 +7,7 @@ const HomeFeed = () => {
   //useStatates
   const [tweets, setTweets] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [reload, setReload] = useState(false);
 
   useEffect(() => {
     //fetch for homefeed
@@ -20,7 +21,7 @@ const HomeFeed = () => {
         setIsLoading(false);
         console.log(sortedTweets);
       });
-  }, []);
+  }, [reload]);
 
   // Handle submitting the tweet
   const handleTweetSubmit = (status) => {
@@ -38,6 +39,7 @@ const HomeFeed = () => {
       .then((data) => {
         // check if my tweet was successfully submitted :)
         console.log("New tweet created:", data);
+        setReload(!reload);
       })
       .catch((error) => {
         // I guess it wasn't succesfull :(
