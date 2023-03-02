@@ -3,6 +3,8 @@ import {
   UnlikeTweetIcon,
   LikeTweetIcon,
   RetweetIcon,
+  ShareIcon,
+  CommentBoxIcon,
 } from "../src/components/Icons/tweet/IconsForTweets";
 import { format } from "date-fns";
 import { useState } from "react";
@@ -45,11 +47,21 @@ const Tweet = ({ tweet }) => {
         <TweetImage key={index} src={item.url} alt={item.type} />
       ))}
       <IconsAtBottom>
-        <span onClick={handleLikeClick}>
-          {liked ? <LikeTweetIcon /> : <UnlikeTweetIcon />}
+        <span>
+          <CommentBoxIcon />
         </span>
-        {likes > 0 && <span>{likes}</span>}
-        <span>{<RetweetIcon />}</span>
+        <LikeContainer>
+          <span onClick={handleLikeClick}>
+            {liked ? <LikeTweetIcon /> : <UnlikeTweetIcon />}
+          </span>
+          {likes > 0 && <span className="likes-count">{likes}</span>}
+        </LikeContainer>
+        <span>
+          <RetweetIcon />
+        </span>
+        <span>
+          <ShareIcon />
+        </span>
       </IconsAtBottom>
     </TweetBox>
   );
@@ -87,8 +99,21 @@ const TweetTop = styled.div`
   }
 `;
 
-const IconsAtBottom = styled.div``;
+const IconsAtBottom = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 15%;
+  max-width: 70%;
+  justify-content: space-between;
 
+  .likes-count {
+    margin-left: 3px;
+  }
+`;
+const LikeContainer = styled.div``;
 const FlexBoxContainer = styled.div`
   display: flex;
   align-items: center;
