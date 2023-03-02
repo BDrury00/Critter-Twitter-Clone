@@ -50,15 +50,12 @@ const SidebarContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: 100%;
-  border: 2px solid black;
 `;
 
 const SideBarYuh = styled.div`
   width: 200px;
   height: 550px;
-  background-color: #f0f0f0;
   padding: 20px;
-  border: 2px solid black;
   font-size: 24px;
   font-weight: bold;
 

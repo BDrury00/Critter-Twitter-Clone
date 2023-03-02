@@ -40,13 +40,11 @@ const Container = styled.div`
 `;
 
 //sidebar placement
-const SideBarContainer = styled.div`
-  border: 2px solid blue;
-`;
+const SideBarContainer = styled.div``;
 
 // content placement
 const Content = styled.div`
-  border: 2px solid red;
+  border: 2px solid grey;
 
   min-width: 45%;
   max-width: 45%;
