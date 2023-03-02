@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {
   UnlikeTweetIcon,
   LikeTweetIcon,
+  RetweetIcon,
 } from "../src/components/Icons/tweet/IconsForTweets";
 import { format } from "date-fns";
 import { useState } from "react";
@@ -30,48 +31,71 @@ const Tweet = ({ tweet }) => {
 
   return (
     <TweetBox>
-      <ProfilePics src={author.avatarSrc} alt={author.displayName} />
-      <div>
+      <FlexBoxContainer>
+        <ProfilePics src={author.avatarSrc} alt={author.displayName} />
         <TweetTop>
           <span>{author.displayName}</span>
           <span>@{author.handle}</span>
           <span>{format(new Date(timestamp), "MMM dd")}</span>
+          <UsersStatus>{status}</UsersStatus>
         </TweetTop>
-        <div>{status}</div>
-        {media.map((item, index) => (
-          <TweetImage key={index} src={item.url} alt={item.type} />
-        ))}
-        <div>
-          <span onClick={handleLikeClick}>
-            {liked ? <LikeTweetIcon /> : <UnlikeTweetIcon />}
-          </span>
-          <span>{likes}</span>
-          <span>{isRetweeted ? "Retweeted" : "Not retweeted"}</span>
-        </div>
-      </div>
+      </FlexBoxContainer>
+
+      {media.map((item, index) => (
+        <TweetImage key={index} src={item.url} alt={item.type} />
+      ))}
+      <IconsAtBottom>
+        <span onClick={handleLikeClick}>
+          {liked ? <LikeTweetIcon /> : <UnlikeTweetIcon />}
+        </span>
+        {likes > 0 && <span>{likes}</span>}
+        <span>{<RetweetIcon />}</span>
+      </IconsAtBottom>
     </TweetBox>
   );
 };
 
 const TweetBox = styled.div`
   border: 1px solid lightgray;
+  min-height: 150px;
 `;
 
 const ProfilePics = styled.img`
   border-radius: 50%;
   width: 60px;
   height: 60px;
+  margin-right: 20px;
 `;
 
 const TweetImage = styled.img`
-  width: 100%;
-  max-height: 300px;
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  max-height: 350px;
+  border-radius: 30px;
 `;
 
 //organization of info in tweetboxes
 
 const TweetTop = styled.div`
-  display: flex;
+  span:first-child {
+    margin-right: 5px;
+  }
+
+  span:not(:first-child) {
+    margin-left: 5px;
+  }
 `;
+
+const IconsAtBottom = styled.div``;
+
+const FlexBoxContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 5px;
+`;
+
+const UsersStatus = styled.div``;
 
 export default Tweet;
