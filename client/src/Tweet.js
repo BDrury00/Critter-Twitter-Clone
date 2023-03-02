@@ -38,7 +38,7 @@ const Tweet = ({ tweet }) => {
         <TweetTop>
           <span>{author.displayName}</span>
           <span>@{author.handle}</span>
-          <span>{format(new Date(timestamp), "MMM dd")}</span>
+          <span>{format(new Date(timestamp), "MMM do")}</span>
           <UsersStatus>{status}</UsersStatus>
         </TweetTop>
       </FlexBoxContainer>
@@ -91,11 +91,13 @@ const TweetImage = styled.img`
 
 const TweetTop = styled.div`
   span:first-child {
-    margin-right: 5px;
+    margin-right: -4px;
+    font-weight: bold;
+    font-size: 1.2rem;
   }
 
   span:not(:first-child) {
-    margin-left: 5px;
+    margin-left: 10px;
   }
 `;
 
@@ -121,6 +123,9 @@ const FlexBoxContainer = styled.div`
   margin-left: 5px;
 `;
 
-const UsersStatus = styled.div``;
+const UsersStatus = styled.div`
+  word-wrap: break-word;
+  max-width: 500px;
+`;
 
 export default Tweet;

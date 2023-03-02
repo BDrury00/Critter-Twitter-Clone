@@ -36,7 +36,10 @@ const TweetInputBox = ({ onSubmit }) => {
         <CharacterCount style={{ color: characterCountColor }}>
           {remainingChars}
         </CharacterCount>
-        <Button type="submit" disabled={tweetText.length === 0}>
+        <Button
+          type="submit"
+          disabled={tweetText.length === 0 || remainingChars < 0}
+        >
           Meow
         </Button>
       </form>
@@ -62,7 +65,7 @@ const Input = styled.input`
   width: 500px;
   height: 200px;
   text-align: left;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 `;
 
 const CharacterCount = styled.span`
