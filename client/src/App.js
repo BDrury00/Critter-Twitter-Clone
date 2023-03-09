@@ -8,7 +8,8 @@ import Bookmarks from "./components/render-info/Bookmarks";
 import TweetDetails from "./components/render-info/TweetDetails";
 import Profile from "./components/render-info/Profile";
 import styled from "styled-components";
-
+import FriendsProfile from "./FriendsProfile";
+// fix FriendsProfile Route
 const App = () => {
   return (
     <>
@@ -24,6 +25,7 @@ const App = () => {
               <Route path="/bookmarks" element={<Bookmarks />} />
               <Route path="/tweet/:tweetId" element={<TweetDetails />} />
               <Route path="/:profileId" element={<Profile />} />
+              <Route path="/:handle/profile" element={<FriendsProfile />} />
             </Routes>
           </Content>
         </Container>
