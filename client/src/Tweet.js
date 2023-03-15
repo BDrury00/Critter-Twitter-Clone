@@ -9,6 +9,7 @@ import {
 } from "../src/components/Icons/tweet/IconsForTweets";
 import { format } from "date-fns";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Tweet = ({ tweet }) => {
   const { author, timestamp, status, media, isLiked, numLikes, retweetFrom } =
@@ -41,13 +42,22 @@ const Tweet = ({ tweet }) => {
             </NavToProfile>
           </span>
           <span>{format(new Date(timestamp), "MMM do")}</span>
-          <UsersStatus>{status}</UsersStatus>
+          <LinktoTweetDetails>
+            <Link to={`/tweet/${tweet.id}`}>
+              <UsersStatus>{status}</UsersStatus>
+            </Link>
+          </LinktoTweetDetails>
         </TweetTop>
       </FlexBoxContainer>
 
-      {media.map((item, index) => (
-        <TweetImage key={index} src={item.url} alt={item.type} />
-      ))}
+      <div>
+        <Link to={`/tweet/${tweet.id}`}>
+          {media.map((item, index) => (
+            <TweetImage key={index} src={item.url} alt={item.type} />
+          ))}
+        </Link>
+      </div>
+
       <IconsAtBottom>
         <span>
           <CommentBoxIcon />
@@ -138,6 +148,13 @@ const UsersStatus = styled.div`
 const NavToProfile = styled.a`
   text-decoration: none;
   color: grey;
+`;
+
+const LinktoTweetDetails = styled.div`
+  a {
+    text-decoration: none;
+    color: black;
+  }
 `;
 
 export default Tweet;
