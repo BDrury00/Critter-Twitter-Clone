@@ -36,11 +36,9 @@ const Tweet = ({ tweet }) => {
         <ProfilePics src={author.avatarSrc} alt={author.displayName} />
         <TweetTop>
           <span>{author.displayName}</span>
-          <span>
-            <NavToProfile href={`/${author.handle}`}>
-              @{author.handle}
-            </NavToProfile>
-          </span>
+          <NavToProfile>
+            <Link to={`/${author.handle}`}>@{author.handle}</Link>
+          </NavToProfile>
           <span>{format(new Date(timestamp), "MMM do")}</span>
           <LinktoTweetDetails>
             <Link to={`/tweet/${tweet.id}`}>
@@ -145,9 +143,11 @@ const UsersStatus = styled.div`
   max-width: 500px;
 `;
 
-const NavToProfile = styled.a`
-  text-decoration: none;
-  color: grey;
+const NavToProfile = styled.span`
+  & > a {
+    text-decoration: none;
+    color: grey;
+  }
 `;
 
 const LinktoTweetDetails = styled.div`

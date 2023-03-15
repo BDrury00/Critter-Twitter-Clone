@@ -2,10 +2,9 @@ import styled from "styled-components";
 import ErrorPage from "../../ErrorPage";
 import { format } from "date-fns";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import {
   UnlikeTweetIcon,
-  LikeTweetIcon,
   RetweetIcon,
   ShareIcon,
   CommentBoxIcon,
@@ -60,11 +59,9 @@ const TweetDetails = () => {
           />
           <TweetTop>
             <span>{tweet.author.displayName}</span>
-            <span>
-              <NavToProfile href={`/${tweet.author.handle}`}>
-                @{tweet.author.handle}
-              </NavToProfile>
-            </span>
+            <NavToProfile>
+              <Link to={`/${tweet.author.handle}`}>@{tweet.author.handle}</Link>
+            </NavToProfile>
           </TweetTop>
         </FlexBoxContainer>
         <StatusText>{tweet.status}</StatusText>
@@ -124,9 +121,11 @@ const FlexBoxContainer = styled.div`
   margin-left: 5px;
 `;
 
-const NavToProfile = styled.a`
-  text-decoration: none;
-  color: grey;
+const NavToProfile = styled.span`
+  & > a {
+    text-decoration: none;
+    color: grey;
+  }
 `;
 
 const TweetTop = styled.div`
