@@ -69,9 +69,11 @@ const Profile = () => {
         <h2>{profile.displayName}</h2>
         <Handle>@{profile.handle}</Handle>
         <p>{profile.bio}</p>
-        <p>
-          <LocationIcon /> {profile.location}
-        </p>
+        {profile.location && (
+          <p>
+            <LocationIcon /> {profile.location}
+          </p>
+        )}
         <FollowContainer>
           <Follow>{profile.numFollowing} Following</Follow>
           <Follow>{profile.numFollowers} Followers</Follow>

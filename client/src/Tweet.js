@@ -35,7 +35,11 @@ const Tweet = ({ tweet }) => {
         <ProfilePics src={author.avatarSrc} alt={author.displayName} />
         <TweetTop>
           <span>{author.displayName}</span>
-          <span>@{author.handle}</span>
+          <span>
+            <NavToProfile href={`/${author.handle}`}>
+              @{author.handle}
+            </NavToProfile>
+          </span>
           <span>{format(new Date(timestamp), "MMM do")}</span>
           <UsersStatus>{status}</UsersStatus>
         </TweetTop>
@@ -129,6 +133,11 @@ const FlexBoxContainer = styled.div`
 const UsersStatus = styled.div`
   word-wrap: break-word;
   max-width: 500px;
+`;
+
+const NavToProfile = styled.a`
+  text-decoration: none;
+  color: grey;
 `;
 
 export default Tweet;
