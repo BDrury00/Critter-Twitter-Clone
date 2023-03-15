@@ -85,6 +85,7 @@ const HomeFeed = () => {
 
 const MeowLoad = styled.h2`
   margin-left: 38%;
+  margin-top: 30%;
 `;
 
 export default HomeFeed;

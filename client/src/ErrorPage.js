@@ -27,16 +27,24 @@ const ErrorIcon = () => {
 
 const ErrorPage = () => {
   return (
-    <>
+    <ErrorScreen>
       <ErrorIcon />
       <Error>An unknown error has occured.</Error>
       <Text>
         Please try refreshing the page, or <a href="#">contact support</a> if
         the problem persists.
       </Text>
-    </>
+    </ErrorScreen>
   );
 };
+
+const ErrorScreen = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20%;
+`;
 
 const Error = styled.h1``;
 

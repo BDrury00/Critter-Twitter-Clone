@@ -54,9 +54,9 @@ const Profile = () => {
   }, [profileId]);
 
   if (status === "loading") {
-    return <h2>Loading Profile...</h2>;
+    return <MeowLoad>Loading Profile...</MeowLoad>;
   }
-  // ErrorPage not working
+  // ErrorPage not working as intended for this component
   if (status === "error") {
     return <ErrorPage />;
   }
@@ -114,6 +114,10 @@ const Follow = styled.p`
 
 const Handle = styled.p`
   margin-top: -20px;
+`;
+const MeowLoad = styled.h2`
+  margin-left: 38%;
+  margin-top: 30%;
 `;
 
 export default Profile;
