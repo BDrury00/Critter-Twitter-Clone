@@ -5,21 +5,14 @@ import {
   RetweetIcon,
   ShareIcon,
   CommentBoxIcon,
+  SmallRetweetIcon,
 } from "../src/components/Icons/tweet/IconsForTweets";
 import { format } from "date-fns";
 import { useState } from "react";
 
 const Tweet = ({ tweet }) => {
-  const {
-    author,
-    timestamp,
-    status,
-    media,
-    isLiked,
-    numLikes,
-    isRetweeted,
-    numRetweets,
-  } = tweet;
+  const { author, timestamp, status, media, isLiked, numLikes, retweetFrom } =
+    tweet;
 
   //stuff for liking
 
@@ -33,6 +26,11 @@ const Tweet = ({ tweet }) => {
 
   return (
     <TweetBox>
+      {retweetFrom && (
+        <Retweeted>
+          <SmallRetweetIcon /> {retweetFrom.displayName} Remeowed
+        </Retweeted>
+      )}
       <FlexBoxContainer>
         <ProfilePics src={author.avatarSrc} alt={author.displayName} />
         <TweetTop>
@@ -70,6 +68,11 @@ const Tweet = ({ tweet }) => {
 const TweetBox = styled.div`
   border: 1px solid lightgray;
   min-height: 150px;
+`;
+
+const Retweeted = styled.span`
+  margin-left: 2%;
+  color: grey;
 `;
 
 const ProfilePics = styled.img`

@@ -55,7 +55,7 @@ const Container = styled.div`
   position: relative;
 `;
 
-const Input = styled.input`
+const Input = styled.textarea`
   flex: 1;
   margin-right: 16px;
   padding: 10px;
