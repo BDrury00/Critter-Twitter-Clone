@@ -136,6 +136,6 @@ timestamp: "2019-12-26T14:38:00+00:00"
 
 ## Refetching after tweeting
 
-An easy thing to miss: after tweeting, your own new tweet should pop into the feed:
+After tweeting, your own new tweet should pop into the feed:
 
 ![After a short delay, the newly-composed tweet appears at the top of the home feed](./assets/screenshots/tweet-in-feed.gif)
